@@ -456,7 +456,7 @@
             options: { ...chartDefaultOptions, plugins: { ...chartDefaultOptions.plugins, legend: { display: false }, datalabels: {color: '#374151', anchor: 'end', align: 'top', formatter: (value) => value + '%'} } , scales: { y: { beginAtZero: true, max: 40, title: { display: true, text: '女性管理職比率 (%)' } } } }
         });
 
-       createChart('mCurveChart', {
+       Chart('mCurveChart', {
             type: 'line',
             data: {
                 labels: ['20-24', '25-29', '30-34', '35-39', '40-44', '45-49'],

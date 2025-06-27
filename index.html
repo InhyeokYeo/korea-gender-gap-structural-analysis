@@ -467,6 +467,14 @@
                     backgroundColor: 'rgba(17, 138, 178, 0.1)',
                     fill: true,
                     tension: 0.4
+                },
+                {
+                    label: '男性',
+                    data: [71, 90, 95, 96, 96, 95],
+                    borderColor: vibrantPalette.blueNCS,
+                    backgroundColor: 'rgba(17, 138, 178, 0.1)',
+                    fill: true,
+                    tension: 0.4
                 }]
             },
             options: { ...chartDefaultOptions, plugins: { ...chartDefaultOptions.plugins, legend: { display: false }, datalabels: { color: vibrantPalette.midnightGreen, anchor: 'end', align: 'top', formatter: (value) => value + '%' } }, scales: { y: { min: 50, max: 80, title: { display: true, text: '労働力率 (%)' } } } }

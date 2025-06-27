@@ -1,295 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インフォグラフィック：韓国ジェンダーギャップの構造分析</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
-            }
-        }
-        .kpi-value {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-        }
-        .card-content-area {
-            flex-grow: 1;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-
-    <div class="container mx-auto p-4 md:p-8">
-
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-[#073B4C] mb-2">韓国のジェンダーギャップ</h1>
-            <p class="text-lg md:text-xl text-[#118AB2]">経済を蝕む構造的な歪み</p>
-        </header>
-
-        <section id="introduction" class="mb-20">
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-[#073B4C] mb-4 text-center">OECDで最も深刻な格差</h2>
-                <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">韓国は先進国の中で、男女間の賃金格差が27年連続で最も大きい国です。この問題は、単なる文化的な背景だけでなく、経済の根幹に深く根ざした「構造」に原因があります。このインフォグラフィックでは、その複雑な構造をデータで解き明かします。</p>
-                <div class="chart-container" style="height: 300px;">
-                    <canvas id="genderPayGapChart"></canvas>
-                </div>
-                 <p class="text-xs text-gray-500 mt-4 text-center">出典: OECD (2022)</p>
-            </div>
-        </section>
-        
-        <section id="woman-double-bind" class="mb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-[#073B4C]">1. 女性が直面するキャリアの壁</h2>
-                 <p class="text-[#118AB2] mt-1">「ガラスの天井」と「母性ペナルティ」</p>
-            </div>
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-[#073B4C] mb-4">見えない壁：「ガラスの天井」</h3>
-                    <p class="text-gray-600 mb-4">女性の高い教育水準にもかかわらず、組織の上層部への道は閉ざされています。管理職や役員に占める女性の割合は、他の先進国に比べて著しく低い水準です。</p>
-                    <div class="chart-container" style="height: 300px;">
-                        <canvas id="glassCeilingChart"></canvas>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: OECD, The Economist (2023)</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-[#073B4C] mb-4">キャリアの断絶：「M字カーブ」</h3>
-                    <p class="text-gray-600 mb-4">女性の労働力率は、出産・育児期にあたる30代で著しく低下し、キャリアに深刻な断絶が生じていることを示しています。これが「母性ペナルティ」の現実です。</p>
-                     <div class="chart-container" style="height: 300px;">
-                        <canvas id="mCurveChart"></canvas>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: KDI (韓国開発研究院)</p>
-                </div>
-             </div>
-        </section>
-
-        <section id="dual-economy" class="mb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-[#073B4C]">2. 分断された経済</h2>
-                <p class="text-[#118AB2] mt-1">少数の「インサイダー」と多数の「アウトサイダー」</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch mb-8">
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-[#073B4C] mb-4">財閥による寡占</h3>
-                    <p class="text-gray-600 mb-4 card-content-area">韓国経済は「財閥」と呼ばれる巨大企業グループに支配されています。上位10グループの売上高は、国のGDPの約70%に相当する規模に達し、ごく一部の企業に富と機会が集中しています。</p>
-                    <div class="relative chart-container" style="height: 280px;">
-                        <canvas id="chaebolDominanceChart"></canvas>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-gray-200">
-                        <div class="text-center mb-4">
-                            <p class="text-xs text-gray-500">中小企業の雇用シェア</p>
-                            <p class="kpi-value text-3xl text-[#073B4C]">~88%</p>
-                        </div>
-                        <h4 class="font-bold text-sm text-[#118AB2]">日本との比較</h4>
-                        <p class="text-xs text-gray-600">日本の「系列」も大企業グループですが、その集中度は韓国ほど高くありません。サムスングループだけでGDPの約20%を占めるなど、特定の数社への経済的依存度が韓国は際立っています。</p>
-                         <p class="text-xs text-gray-500 mt-2 text-center">出典: CEO Score (2023)</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-[#073B4C] mb-4">賃金・生産性の格差</h3>
-                    <p class="text-gray-600 mb-4 card-content-area">財閥と中小企業の間の深刻な生産性格差が、賃金格差として現れています。中小企業労働者の賃金水準は、大手企業に比べて著しく低いままです。</p>
-                    <div class="chart-container" style="height: 280px;">
-                        <canvas id="wageDisparityChart"></canvas>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-gray-200 text-center">
-                        <div>
-                            <p class="text-xs text-gray-500">大手企業の賃金上昇率 (過去20年)</p>
-                            <p class="kpi-value text-3xl text-[#073B4C]">+158%</p>
-                        </div>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: OECD, 各国統計データ (2022)</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-[#073B4C] mb-4">二重の労働市場</h3>
-                    <p class="text-gray-600 mb-4 card-content-area">雇用は「正規職」と「非正規職」に分断されています。韓国では特に女性が非正規職に就く割合が高く、賃金格差の大きな要因です。</p>
-                     <div class="chart-container" style="height: 380px;">
-                        <canvas id="laborMarketChart"></canvas>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: 各国統計データ (2022-23)</p>
-                </div>
-            </div>
-             <div class="mt-8 pt-8 border-t-4 border-dashed border-gray-300">
-                 <h3 class="text-xl font-bold text-red-800 mb-4 text-center">公正競争を阻害する構造的要因</h3>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-4 bg-red-50 rounded-lg">
-                        <p class="font-bold flex items-center mb-2"><span class="text-2xl mr-3">🚇</span>不当な内部取引</p>
-                        <p class="text-xs text-gray-700">財閥一族の会社に不当な利益を供与する「トンネリング」が横行。しかし、立証責任の壁が高く、法の執行が困難。</p>
-                    </div>
-                    <div class="p-4 bg-red-50 rounded-lg">
-                        <p class="font-bold flex items-center mb-2"><span class="text-2xl mr-3">🔄</span>循環出資の温存</p>
-                        <p class="text-xs text-gray-700">過去に形成された、少ない株でグループを支配するための循環出資が「既得権益」として温存され、公正なガバナンスを阻害。</p>
-                    </div>
-                    <div class="p-4 bg-red-50 rounded-lg">
-                        <p class="font-bold flex items-center mb-2"><span class="text-2xl mr-3">🏛️</span>機能不全の私的執行</p>
-                        <p class="text-xs text-gray-700">被害者が企業を訴えるための集団訴訟や証拠開示制度が弱く、市場による自律的な監視機能が働いていない。</p>
-                    </div>
-                 </div>
-            </div>
-        </section>
-
-        <section id="societal-conflict" class="mb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-[#073B4C]">3. 社会を揺るがす対立と危機</h2>
-                 <p class="text-[#118AB2] mt-1">構造的歪みが引き起こす三重の危機</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <div class="card-content-area">
-                        <h3 class="text-xl font-bold text-[#073B4C] mb-4 text-center">ジェンダー戦争</h3>
-                        <p class="text-gray-600 mb-4">経済的な不安と熾烈な競争の中、多くの若い男性は、女性優遇政策を「逆差別」と捉えています。この感情が、反フェミニズムのバックラッシュの根底にあります。</p>
-                    </div>
-                    <div class="chart-container" style="height: 250px; min-height: 250px;">
-                        <canvas id="backlashChart"></canvas>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: 韓国の世論調査データ</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <div class="card-content-area">
-                        <h3 class="text-xl font-bold text-[#073B4C] mb-4 text-center">頭脳流出</h3>
-                        <p class="text-gray-600 mb-4">硬直的な企業文化と限られた機会は、最も優秀な人材を海外へと流出させています。これは韓国の将来の競争力に対する直接的な脅威です。</p>
-                    </div>
-                    <div class="chart-container" style="height: 250px; min-height: 250px;">
-                        <canvas id="brainDrainChart"></canvas>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-4 text-center">出典: OECD, Hanyangian.com</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                    <div class="card-content-area">
-                         <h3 class="text-xl font-bold text-[#073B4C] mb-4 text-center">人口動態の危機</h3>
-                         <p class="text-gray-600 mb-4 text-center">「母性ペナルティ」を避けるための合理的な選択が、世界最低の出生率を招いています。</p>
-                    </div>
-                    <div class="bg-red-50 p-6 rounded-xl w-full text-center flex-grow flex flex-col justify-center">
-                        <p class="text-lg text-red-800 font-bold">合計特殊出生率</p>
-                        <p class="kpi-value text-7xl text-[#FF6F61] my-2">0.72</p>
-                        <p class="text-sm text-red-700">(2023年)</p>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出典: 韓国統計庁</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="reform-approach" class="mb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-[#073B4C]">4. 改革への道筋：市場原理による構造改革</h2>
-                <p class="text-[#118AB2] mt-1">「法の支配」を取り戻すためのアプローチ</p>
-            </div>
-            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8">
-                    <div class="p-6 rounded-xl bg-red-50 flex flex-col">
-                         <h3 class="text-xl font-bold text-red-800 mb-3 flex items-center"><span class="text-3xl mr-3">⚠️</span>トップダウン政策の限界</h3>
-                         <p class="text-gray-700 text-sm">「女性役員クオータ制」や補助金といった政府主導の施策は、対症療法に過ぎず、多くの企業は形式的な対応に終始。男性中心の経営構造は温存され、意図せざる「逆差別」感を生み出し、対立を助長する危険性すらあります。</p>
-                    </div>
-                     <div class="p-6 rounded-xl bg-green-50 flex flex-col">
-                        <h3 class="text-xl font-bold text-green-800 mb-3 flex items-center"><span class="text-3xl mr-3">💡</span>市場原理に基づく改革の優位性</h3>
-                        <p class="text-gray-700 text-sm">より効果的なアプローチは、政府の直接介入ではなく、市場の自律的なメカニズムを通じて、企業や個人の行動変容を促すことです。</p>
-                    </div>
-                </div>
-                <div class="mt-8 pt-8 border-t">
-                     <h4 class="text-lg font-bold text-[#073B4C] mb-4 text-center">推奨されるアプローチ</h4>
-                     <div class="space-y-4 max-w-4xl mx-auto">
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-inner">
-                           <p class="font-bold flex items-center text-lg text-gray-800"><span class="text-3xl mr-4">🔍</span>解決策①：企業情報の徹底的な透明化</p>
-                           <p class="text-sm pl-11 text-gray-600">男女別の賃金・昇進データを完全に開示させ「見える化」する。これにより、非効率な企業は優秀な人材から選ばれなくなり、市場原理を通じて淘汰へと向かいます。</p>
-                        </div>
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-inner">
-                            <p class="font-bold flex items-center text-lg text-gray-800"><span class="text-3xl mr-4">🏢</span>解決策②：採用における企業の自由と市場による規律</p>
-                            <p class="text-sm pl-11 text-gray-600">採用基準は企業の自由な経営判断に委ねるべきです。非合理的な基準を持つ企業の情報は、「口コミサイトの活用」などを通じて市場に伝播し、優秀な人材から敬遠され、市場競争の中で自然と淘汰されます。</p>
-                        </div>
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-inner">
-                            <p class="font-bold flex items-center text-lg text-gray-800"><span class="text-3xl mr-4">🛡️</span>解決策③：公正な取引を保証するための制度改定</p>
-                            <p class="text-sm pl-11 text-gray-600">不当な内部取引は<strong>立証責任を転換</strong>し、不公正な支配構造の源泉である<strong>循環出資は期限付きで解消</strong>させます。加えて、市場参加者が自ら不正を正せるよう、<strong>私的執行（集団訴訟、証拠開示）</strong>を強化すべきです。</p>
-                        </div>
-                     </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="conclusion" class="mb-20">
-             <div class="max-w-4xl mx-auto bg-[#073B4C] text-white rounded-2xl shadow-2xl p-6 md:p-10">
-                <h2 class="text-2xl font-bold mb-4 text-center text-[#75E6DA]">結論：構造改革こそが本質</h2>
-                <p class="text-gray-200 text-center leading-relaxed">韓国のジェンダーギャップ問題の本質は、男女間の対立ではなく、<strong>一部のインサイダーにのみ有利な、硬直的な社会経済構造</strong>にあります。この構造的な病は、国家全体を人口動態の危機へと追いやっています。<br><br>真の解決策は、政府による価値観の強制ではなく、<strong>市場の透明性を徹底的に高め、公正な競争を促進すること</strong>です。これにより、企業が自らの利益のために、自主的に非合理的な慣行を是正せざるを得ない状況が創り出されます。</p>
-            </div>
-        </section>
-
-        <section id="data-table" class="mb-8">
-             <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
-                 <h3 class="text-xl font-bold text-[#073B4C] mb-4 text-center">補足資料：ジェンダーギャップに関する主要指標</h3>
-                 <p class="text-gray-600 mb-6 text-center">この表は、韓国の状況が日本や他の先進国平均と比較して、いかに突出しているかを客観的に示しています。</p>
-                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-                            <tr>
-                                <th scope="col" class="py-3 px-6">指標</th>
-                                <th scope="col" class="py-3 px-6 text-center">韓国</th>
-                                <th scope="col" class="py-3 px-6 text-center">日本</th>
-                                <th scope="col" class="py-3 px-6 text-center">OECD平均</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">男女間賃金格差 (%)</th>
-                                <td class="py-4 px-6 text-center text-[#FF6F61] font-bold">31.2</td>
-                                <td class="py-4 px-6 text-center">21.3</td>
-                                <td class="py-4 px-6 text-center">12.1</td>
-                            </tr>
-                            <tr class="bg-gray-50 border-b">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">女性管理職比率 (%)</th>
-                                <td class="py-4 px-6 text-center text-[#FF6F61] font-bold">16.3</td>
-                                <td class="py-4 px-6 text-center">13.2</td>
-                                <td class="py-4 px-6 text-center">34.2</td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">取締役会女性比率 (%)</th>
-                                <td class="py-4 px-6 text-center text-[#FF6F61] font-bold">6.0</td>
-                                <td class="py-4 px-6 text-center">15.5</td>
-                                <td class="py-4 px-6 text-center">32.5</td>
-                            </tr>
-                             <tr class="bg-gray-50 border-b">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">高等教育率 (女性, 25-34歳, %)</th>
-                                <td class="py-4 px-6 text-center text-[#06D6A0] font-bold">77.0</td>
-                                <td class="py-4 px-6 text-center">65.0</td>
-                                <td class="py-4 px-6 text-center">50.4</td>
-                            </tr>
-                             <tr class="bg-white">
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">合計特殊出生率</th>
-                                <td class="py-4 px-6 text-center text-[#FF6F61] font-bold">0.72</td>
-                                <td class="py-4 px-6 text-center">1.26</td>
-                                <td class="py-4 px-6 text-center">1.58</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                     <p class="text-xs text-gray-500 mt-4 text-center">出所: OECD.Stat, The Economist等、本文中の出典に基づく。年次や定義は出典により若干異なる。</p>
-                 </div>
-             </div>
-        </section>
-        
-        <footer class="text-center py-12 text-gray-500 text-xs">
-            <p>&copy; 2025. Inhyeok Yeo</p>
-        </footer>
-
-    </div>
-
-    <script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         Chart.register(ChartDataLabels);
 
         const vibrantPalette = {
@@ -317,7 +27,7 @@
                 }
             }
         };
-        
+
         function wrapText(str, maxWidth = 16) {
             if (!str || str.length <= maxWidth) {
                 return str;
@@ -342,8 +52,8 @@
         const chartDefaultOptions = {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { 
-                ...chartTooltipConfig.plugins, 
+            plugins: {
+                ...chartTooltipConfig.plugins,
                 legend: { position: 'bottom' },
             },
             scales: {
@@ -351,7 +61,7 @@
                 y: { ticks: { font: { family: "'Inter', 'Noto Sans JP', sans-serif" } } }
             }
         };
-        
+
         const centerTextPlugin = {
             id: 'centerText',
             afterDraw: function(chart) {
@@ -361,10 +71,10 @@
                     let fontStyle = chart.config.options.plugins.centerText.font;
                     let textColor = chart.config.options.plugins.centerText.color;
                     let text = chart.config.options.plugins.centerText.text;
-                    
+
                     let centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
                     let centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-                    
+
                     ctx.font = fontStyle;
                     ctx.fillStyle = textColor;
                     ctx.textAlign = 'center';
@@ -388,19 +98,19 @@
             },
             options: { ...chartDefaultOptions, indexAxis: 'y', plugins: { ...chartDefaultOptions.plugins, legend: { display: false }, datalabels: {color: '#374151', anchor: 'end', align: 'end', formatter: (value) => value + '%'} } }
         });
-        
+
         new Chart(document.getElementById('chaebolDominanceChart'), {
             type: 'doughnut',
             data: {
                 labels: ['上位10大財閥の売上高', 'その他'],
                 datasets: [{ data: [70, 30], backgroundColor: [vibrantPalette.midnightGreen, '#e5e7eb'], borderWidth: 4, borderColor: '#ffffff' }]
             },
-            options: { 
+            options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 cutout: '70%',
-                plugins: { 
-                    ...chartTooltipConfig.plugins, 
+                plugins: {
+                    ...chartTooltipConfig.plugins,
                     legend: { position: 'bottom' },
                     datalabels: {
                         font: { weight: 'bold', size: 16 },
@@ -456,7 +166,7 @@
             options: { ...chartDefaultOptions, plugins: { ...chartDefaultOptions.plugins, legend: { display: false }, datalabels: {color: '#374151', anchor: 'end', align: 'top', formatter: (value) => value + '%'} } , scales: { y: { beginAtZero: true, max: 40, title: { display: true, text: '女性管理職比率 (%)' } } } }
         });
 
-       Chart('mCurveChart', {
+        new Chart(document.getElementById('mCurveChart'), {
             type: 'line',
             data: {
                 labels: ['20-24', '25-29', '30-34', '35-39', '40-44', '45-49'],
@@ -477,9 +187,22 @@
                     tension: 0.4
                 }]
             },
-        }, { plugins: { datalabels: { display: false } }, scales: { y: { min: 50, max: 100, title: { display: true, text: '労働力率 (%)' } } } });
+            options: {
+                ...chartDefaultOptions,
+                plugins: {
+                    ...chartDefaultOptions.plugins,
+                    datalabels: { display: false }
+                },
+                scales: {
+                    y: {
+                        min: 50,
+                        max: 100,
+                        title: { display: true, text: '労働力率 (%)' }
+                    }
+                }
+            }
         });
-        
+
         new Chart(document.getElementById('backlashChart'), {
             type: 'doughnut',
             data: {
@@ -487,13 +210,13 @@
                 datasets: [{
                     data: [79, 21],
                     backgroundColor: [vibrantPalette.coral, '#e5e7eb'],
-                     borderWidth: 4,
+                    borderWidth: 4,
                     borderColor: '#ffffff'
                 }]
             },
             options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { ...chartTooltipConfig.plugins, datalabels: { color: (ctx) => ctx.dataIndex === 0 ? '#ffffff' : '#374151', formatter: (value) => value + '%' } } }
         });
-        
+
         new Chart(document.getElementById('brainDrainChart'), {
             type: 'line',
             data: {
@@ -515,12 +238,4 @@
                     tension: 0.1
                 }]
             },
-            options: { ...chartDefaultOptions, plugins: { ...chartDefaultOptions.plugins, datalabels: { 
-                align: 'top', 
-                formatter: (value, context) => context.datasetIndex === 0 ? value.toLocaleString() + '万人' : '',
-                color: vibrantPalette.midnightGreen
-            } }, scales: { y: { beginAtZero: true, title: { display: true, text: '国籍放棄/海外永住権取得数（万人）' } } } }
-        });
-    </script>
-</body>
-</html>
+            options: { ...chartDefaultOptions, plugins: { ...chart

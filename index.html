@@ -36,6 +36,15 @@
         .card-content-area {
             flex-grow: 1;
         }
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .has-tooltip:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -165,8 +174,8 @@
                             <p class="kpi-value text-3xl text-[#073B4C]">~88%</p>
                         </div>
                         <h4 class="font-bold text-sm text-[#118AB2]">日本との比較</h4>
-                        <p class="text-xs text-gray-600">トヨタの売上高は日本のGDPの約6.3%ですが、サムスンだけで韓国GDPの約20%を占めます。日本の6大企業グループの経済全体に占める割合が最盛期でも10%台だったことと比較しても、韓国の特定数社への依存度は際立っています。</p>
-                         <p class="text-xs text-gray-500 mt-2 text-center">出典: CEO Score (2023)</p>
+                        <p class="text-xs text-gray-600">日本の「系列」とは集中度が異なります。例えば、トヨタの売上高は日本のGDPの約6.3%ですが、サムスンだけで韓国GDPの約20%を占めます。日本の6大企業グループの経済全体に占める割合が最盛期でも10%台だったことと比較しても、韓国の特定数社への依存度は際立っています。</p>
+                         <p class="text-xs text-gray-500 mt-2 text-center">出典: CEO Score (2023), 各国統計</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
@@ -195,7 +204,7 @@
              <div class="mt-8 pt-8 border-t-4 border-dashed border-gray-300">
                  <h3 class="text-xl font-bold text-red-800 mb-4 text-center">公正競争を阻害する構造的要因</h3>
                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-4 bg-red-50 rounded-lg">
+                    <div class="p-4 bg-red-50 rounded-lg has-tooltip relative">
                         <p class="font-bold flex items-center mb-2"><span class="text-2xl mr-3">🚇</span>不当な内部取引</p>
                         <p class="text-xs text-gray-700">財閥一族の会社に不当な利益を供与する「トンネリング」が横行。しかし、立証責任の壁が高く、法の執行が困難。</p>
                         <div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-3 bg-gray-800 text-white text-xs rounded-lg shadow-lg z-10">
